@@ -100,6 +100,7 @@ class Aplicacion:
                 clave_desencriptada = self.desencriptar(resultado[3])
                 self.entry_clave.insert(0, clave_desencriptada)
                 self.entry_nota.insert(0, resultado[4])
+               
             else:
                 messagebox.showerror('Error', 'Registro no encontrado')
         else:
@@ -123,3 +124,9 @@ class Aplicacion:
         texto_plano = self.cipher_suite.decrypt(texto_encriptado.encode())
         return texto_plano.decode()
     
+if __name__=='__main__':
+    app = Aplicacion(tk.Tk())
+    encriptado = app.encriptar("Hola")
+    print(encriptado)
+    desencriptado = app.desencriptar(encriptado)
+    print(desencriptado)
